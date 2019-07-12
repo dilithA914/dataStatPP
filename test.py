@@ -260,11 +260,11 @@ if(category=="3"):
     style="line"
 
     if(style=="line"):
-        ax = sns.barplot("year", "Sri Lanka", data=t,palette="Blues_d",legend="brief",label="SriLanka")
+        ax = sns.lineplot("year", "Sri Lanka", data=t,palette="Blues_d",legend="brief",label="SriLanka")
         if(compare_status=="y"):
             ax = sns.lineplot("year", compare_country, data=t,legend="brief",label=compare_country)
         plt.title(title)
         plt.ylabel(ylbl)
-        #plt.legend()
+        plt.legend()
         plt.show()
         
