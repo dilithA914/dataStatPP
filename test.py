@@ -18,6 +18,7 @@ print("\t2.Health")
 print("\t3.Education")
 print("\t4.Infrastructure")
 print("\t5.Economy")
+print("\t6.Society")
 
 category=input("Data Category (Number) : ")
 if(category=="1"):
@@ -383,6 +384,91 @@ if(category=="5"):
         ylbl="percentage"
         title="Tax Revenue , % of GDP"
         chart=(folder+"tax.csv")
+
+    
+
+
+    t = pd.read_csv(chart)
+
+    compare_status=input("Do you want to compare with another country(y/n) :")
+    if(compare_status=="y"):
+        print("Afghanistan    \t        Albania			Algeria     		Andorra  		Angola	")
+        print("Antigua and Barbuda     Argentina     		Armenia     		Australia		Austria	")
+        print("Azerbaijan		Bahamas			Bahrain			Bangladesh		Barbados")	
+        print("Belarus			Belgium			Belize			Benin			Bhutan	")
+        print("Bolivia			Bosnia and Herzegovina	Botswana		Brazil			Brunei	")
+        print("Bulgaria	        Burkina			Faso			Burundi			Cambodia")	
+        print("Cameroon		Canada			Cape Verde		Cent. African Republic	Chad	")
+        print("Chile			China			Colombia		Comoros			Congo, Dem. Rep.	")
+        print("Congo, Rep.		Costa Rica		Cote d'Ivoire		Croatia			Cuba	")
+        print("Cyprus			Czech Republic		Denmark			Djibouti		Dominica")	
+        print("Dominican Republic	Ecuador			Egypt			El Salvador		Equatorial Guinea")	
+        print("Eritrea			Estonia			Ethiopia		Fiji			Finland	")
+        print("France			Gabon			Gambia			Georgia			Germany	")
+        print("Ghana			Greece			Grenada			Guatemala		Guinea	")
+        print("Guinea-Bissau		Guyana			Haiti			Holy See		Honduras")	
+        print("Hungary			Iceland			India			Indonesia		Iran	")
+        print("Iraq			Ireland			Israel			Italy			Jamaica	")
+        print("Japan			Jordan			Kazakhstan		Kenya			Kiribati")	
+        print("Kuwait			Kyrgyz 			Republic		Lao			Latvia		Lebanon")	
+        print("Lesotho			Liberia			Libya			Liechtenstein		Lithuania	")
+        print("Luxembourg		Macedonia, FYR		Madagascar		Malawi			Malaysia	")
+        print("Maldives		Mali			Malta			Marshall Islands	Mauritania	")
+        print("Mauritius		Mexico			Micronesia, Fed. Sts.	Moldova			Monaco	")
+        print("Mongolia		Montenegro		Morocco			Mozambique		Myanmar	")
+        print("Namibia			Nauru			Nepal			Netherlands		New Zealand	Nicaragua")	
+        print("Niger			Nigeria			North Korea		Norway			Oman	")
+        print("Pakistan		Palau			Palestine		Panama			Papua New Guinea")	
+        print("Paraguay		Peru			Philippines		Poland			Portugal	")
+        print("Qatar			Romania			Russia			Rwanda			Samoa	")
+        print("San Marino		Sao Tome and Principe	Saudi Arabia		Senegal			Serbia	")	
+        print("Seychelles		Sierra Leone		Singapore		Slovak Republic		Slovenia")	
+        print("Solomon Islands		Somalia			South Africa		South Korea		South Sudan")	
+        print("Spain			Sri Lanka		St. Kitts and Nevis	St. Lucia		St. Vincent and the Grenadines")	
+        print("Sudan			Suriname		Swaziland		Sweden			Switzerland	")
+        print("Syria			Tajikistan		Tanzania		Thailand		Timor-Leste	")
+        print("Togo			Tonga			Trinidad and Tobago	Tunisia	Turkey		Turkmenistan	")
+        print("Tuvalu			Uganda			Ukraine			United Arab Emirates	United Kingdom	")
+        print("United States		Uruguay			Uzbekistan		Vanuatu			Venezuela	")
+        print("Vietnam			Yemen			Zambia			Zimbabwe")
+        compare_country=input("Country to compare with :")
+        
+
+
+    style="line"
+
+    if(style=="line"):
+        ax = sns.lineplot("year", "Sri Lanka", data=t,palette="Blues_d",legend="brief",label="SriLanka")
+        if(compare_status=="y"):
+            ax = sns.lineplot("year", compare_country, data=t,legend="brief",label=compare_country)
+        plt.title(title)
+        plt.ylabel(ylbl)
+        plt.legend()
+        plt.show()
+        
+
+
+if(category=="6"):
+    folder=("society/")
+    print("\t1.Corruption ; based on CPI index")
+    print("\t2.Human Development Index- (Health/Education/Living)")
+    print("\t3.Democracy Score,  Based on Polity score / polity iv dataset")
+
+    chart_num=input("Enter Category(Number) :")
+    if(chart_num=="1"):
+        ylbl="CPI index value"
+        title="Corruption based on CPI index"
+        chart=(folder+"corruption.csv")
+
+    elif(chart_num=="2"):
+        ylbl="HDI value"
+        title="Human Development Index- (Health/Education/Living)"
+        chart=(folder+"hdi.csv")
+
+    elif(chart_num=="3"):
+        ylbl="polity score"
+        title="Democracy Score ( -10 to +10)"
+        chart=(folder+"democ.csv")
 
     
 
